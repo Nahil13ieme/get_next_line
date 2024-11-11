@@ -15,27 +15,25 @@
 
 char	*get_next_line(int fd)
 {
-	//static char	*stash;
+	static char	*staticBuffer;
 	char		buffer[BUFFER_SIZE];
-	int			i = 0;
-	char		*result;
-	size_t		count = 0;
-	//int			isDone;
+	size_t		readBytes;
+	char		*line;
 
-	while(read(fd, buffer, count))
+	readBytes = read(fd, buffer, BUFFER_SIZE);
+	if (readBytes <=)
+		return (NULL);
+	while(readBytes > 0)
 	{
-		while(buffer[i])
+		buffer[readBytes] = 0;
+		staticBuffer = ft_strjoin_free(staticBuffer, buffer);
+		if (!staticBuffer)
+			return (NULL);
+		if (ft_strchr(staticBuffer, '\n') != NULL)
 		{
-			if (buffer[i] == '\n')
-			{
-				result = malloc(sizeof(char) * 10 );
-				result[9] = '\0';
-				while(*result)
-					*result++ = 'a';
-				return (result);
-			}
-			i++;
+
 		}
+		readBytes = read(fd, buffer, BUFFER_SIZE);
 	}
 	return (NULL);
 }
