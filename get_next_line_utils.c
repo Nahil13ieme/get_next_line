@@ -25,18 +25,57 @@ int	ft_strlen(char *s)
 char	*ft_strjoin_free(char *s1, char *s2)
 {
 	char	*res;
+	char	*tmp;
 
 	if(!s1 && !s2)
 		return (NULL);
-	res = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s1) + 1));
-	if (!res )
+	if (!s1)
+		return (s2);
+	if (!s2)
+		return (s1);
+	res = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	tmp = res;
+	if (!res)
 		return (NULL);
-	while(s1)
-		res++ = s1++;
+	while(*s1)
+		*res++ = *s1++;
 	while(*s2)
-		res++ = s2++;
-	free(s1);
-	return (res);
+		*res++ = *s2++;
+	*res = 0;
+	free(s1 - sizeof(s1));
+	return (tmp);
+}
+
+char	*ft_strdup(char *s)
+{
+	size_t	len;
+	char	*copy;
+
+	len = ft_strlen(s);
+	copy = (char *)malloc(len + 1);
+	if (copy == NULL)
+		return (NULL);
+	while (*s)
+		*copy++ = *s++;
+	*copy = '\0';
+	return (copy - len);
+}
+
+char	*ft_strdup_line(char *s)
+{
+	size_t	len;
+	char	*copy;
+
+	len = 0;
+	while(s[len] && s[len] != '\n')
+		len++;
+	copy = (char *)malloc(len+1);
+	if (copy == NULL)
+		return (NULL);
+	while (*s)
+		*copy++ = *s++;
+	*copy = '\0';
+	return (copy - len);
 }
 
 char	*ft_strchr(char *s,	int c)
@@ -50,5 +89,7 @@ char	*ft_strchr(char *s,	int c)
 			return (ptr);
 		ptr++;
 	}
+	if (*ptr == (char)c)
+		return (ptr);
 	return (NULL);
 }

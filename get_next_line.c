@@ -13,27 +13,20 @@
 #include "get_next_line.h"
 #include <stdlib.h>
 
-char	*get_next_line(int fd)
+char *get_next_line(int fd)
 {
-	static char	*staticBuffer;
-	char		buffer[BUFFER_SIZE];
-	size_t		readBytes;
-	char		*line;
+	static char *staticBuffer;
+	char *buffer;
+	char *line;
+	char *res;
 
-	readBytes = read(fd, buffer, BUFFER_SIZE);
-	if (readBytes <=)
+	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, &buffer, 0) < 0)
 		return (NULL);
-	while(readBytes > 0)
+	
+	while(read(fd, &buffer, BUFFER_SIZE))
 	{
-		buffer[readBytes] = 0;
-		staticBuffer = ft_strjoin_free(staticBuffer, buffer);
-		if (!staticBuffer)
-			return (NULL);
-		if (ft_strchr(staticBuffer, '\n') != NULL)
-		{
-
-		}
-		readBytes = read(fd, buffer, BUFFER_SIZE);
+		// If i can read i need to add the buffer in the staticBuffer but if i cannot read i need to make sure the 
+		// static buffer is empty too
 	}
-	return (NULL);
+	// Check if staticBuffer is empty, if not i need to return line by line
 }

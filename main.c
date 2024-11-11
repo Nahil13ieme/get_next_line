@@ -2,12 +2,23 @@
 #include <stdio.h>
 #include <unistd.h>
 
-int	main(void)
+int main(void)
 {
 	int fd = open("test.txt", O_RDONLY);
 	char *test;
-	printf("before get");
-	test = get_next_line(fd);	
-	printf("after get");
+
+	if (fd == -1) {
+		perror("Error opening file");
+		return (1);
+	}
+	printf("--%s--\n", test = get_next_line(fd));
+	printf("================\n");
+	printf("--%s--\n", test = get_next_line(fd));
+	printf("================\n");
+	printf("--%s--\n", test = get_next_line(fd));
+	printf("================\n");
+	printf("--%s--\n", test = get_next_line(fd));
+	printf("================\n");
+	close(fd);
 	return (0);
 }
