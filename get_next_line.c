@@ -21,7 +21,7 @@ char	*get_next_line(int fd)
 	char		*line;
 
 	readBytes = read(fd, buffer, BUFFER_SIZE);
-	if (readBytes <=)
+	if (readBytes <= 0)
 		return (NULL);
 	while(readBytes > 0)
 	{
@@ -31,7 +31,8 @@ char	*get_next_line(int fd)
 			return (NULL);
 		if (ft_strchr(staticBuffer, '\n') != NULL)
 		{
-
+			line = ft_strchr(staticBuffer, '\n');
+			return (line);
 		}
 		readBytes = read(fd, buffer, BUFFER_SIZE);
 	}

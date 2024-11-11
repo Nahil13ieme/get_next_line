@@ -22,5 +22,8 @@
 #include <stdlib.h>
 
 char	*get_next_line(int fd);
+int		ft_strlen(char *s);
+char	*ft_strchr(char *s, int c);
+char	*ft_strjoin_free(char *s1, char *s2);
 
 #endif

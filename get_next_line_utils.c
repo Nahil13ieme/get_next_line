@@ -25,16 +25,19 @@ int	ft_strlen(char *s)
 char	*ft_strjoin_free(char *s1, char *s2)
 {
 	char	*res;
+	char	*tmp;
 
 	if(!s1 && !s2)
 		return (NULL);
-	res = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s1) + 1));
+	res = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	tmp = res;
 	if (!res )
 		return (NULL);
-	while(s1)
-		res++ = s1++;
+	while(*s1)
+		*tmp++ = *s1++;
 	while(*s2)
-		res++ = s2++;
+		*tmp++ = *s2++;
+	*tmp = 0;
 	free(s1);
 	return (res);
 }
