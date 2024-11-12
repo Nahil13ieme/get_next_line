@@ -18,12 +18,22 @@
 #endif
 
 #include <unistd.h>
+#include <stdio.h>
 #include <stddef.h>
 #include <stdlib.h>
+#include <fcntl.h>
 
 char	*get_next_line(int fd);
+<<<<<<< HEAD
 int		ft_strlen(char *s);
 char	*ft_strchr(char *s, int c);
 char	*ft_strjoin_free(char *s1, char *s2);
+=======
+char	*ft_strjoin_free(char *s1, char *s2);
+int		ft_strlen(char *s);
+char	*ft_strdup(char *s);
+char	*ft_strchr(char *s,	int c);
+char	*ft_strdup_line(char *s);
+>>>>>>> bc101de56d606e50406e3c3d6902275c5c0bdf4a
 
 #endif
