@@ -29,19 +29,6 @@ char	*ft_strjoin_free(char *s1, char *s2)
 
 	if(!s1 && !s2)
 		return (NULL);
-<<<<<<< HEAD
-	res = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
-	tmp = res;
-	if (!res )
-		return (NULL);
-	while(*s1)
-		*tmp++ = *s1++;
-	while(*s2)
-		*tmp++ = *s2++;
-	*tmp = 0;
-	free(s1);
-	return (res);
-=======
 	if (!s1)
 		return (s2);
 	if (!s2)
@@ -89,7 +76,6 @@ char	*ft_strdup_line(char *s)
 		*copy++ = *s++;
 	*copy = '\0';
 	return (copy - len);
->>>>>>> bc101de56d606e50406e3c3d6902275c5c0bdf4a
 }
 
 char	*ft_strchr(char *s,	int c)
