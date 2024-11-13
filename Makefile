@@ -16,7 +16,7 @@ HEADERS = get_next_line.h
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -g
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -g -D BUFFER_SIZE=
 
 # Compile object files
 %.o: %.c $(HEADERS)

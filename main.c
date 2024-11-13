@@ -12,14 +12,21 @@ int main(void)
 		perror("Error opening file");
 		return (1);
 	}
-	printf("--%s--\n", test = get_next_line(fd));
+	printf(" LINE == --%s--\n", test = get_next_line(fd));
 	printf("================\n");
-	printf("--%s--\n", test = get_next_line(fd));
+	printf(" LINE == --%s--\n", test = get_next_line(fd));
 	printf("================\n");
-	printf("--%s--\n", test = get_next_line(fd));
+	printf(" LINE == --%s--\n", test = get_next_line(fd));
 	printf("================\n");
-	printf("--%s--\n", test = get_next_line(fd));
+	printf(" LINE == --%s--\n", test = get_next_line(fd));
 	printf("================\n");
+	printf(" LINE == --%s--\n", test = get_next_line(fd));
+	printf("================\n");
+	printf(" LINE == --%s--\n", test = get_next_line(fd));
+	printf("================\n");
+	printf(" LINE == --%s--\n", test = get_next_line(fd));
+	printf("================\n");
+	free(test);
 	close(fd);
 	return (0);
 }

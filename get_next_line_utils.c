@@ -35,7 +35,7 @@ char	*ft_strjoin_free(char *s1, char *s2)
 		return (NULL);
 	size = ft_strlen((s1)) + ft_strlen(s2);
 	array = (char *)malloc(sizeof(char) * (size + 1));
-	if (array == NULL)
+	if (!array)
 		return (NULL);
 	i = 0;
 	j = 0;
@@ -56,15 +56,17 @@ char	*ft_strdup(char *s)
 {
 	size_t	len;
 	char	*copy;
+	char	*start;
 
 	len = ft_strlen(s);
-	copy = (char *)malloc(len + 1);
-	if (copy == NULL)
+	copy = malloc(len + 1);
+	if (!copy)
 		return (NULL);
+	start = copy;
 	while (*s)
 		*copy++ = *s++;
 	*copy = '\0';
-	return (copy - len);
+	return (start);
 }
 
 unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
@@ -89,14 +91,15 @@ char	*ft_strdup_line(char *s)
 	char	*copy;
 
 	len = 0;
-	printf("s = '%s'\n", s);
 	while (s[len] && s[len] != '\n')
 		len++;
 	if (len == 0)
 		return (NULL);
 	if (s[len] == '\0')
 		len++;
-	copy = (char *)malloc(len+1);
+	copy = (char *)malloc(len + 1);
+	if(!copy)
+		return (NULL);
 	ft_strlcpy(copy, s, len);
 	return (copy);
 }
